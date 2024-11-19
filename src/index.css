@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .base {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+ 
+  .buttonLink{
+    @apply  transition-all duration-300 bg-gradient-to-tl from-[#e8ed86] to-[#d8dc54] hover:from-[#a5a85f] hover:to-[#e1ea2d] active:from-[#c9cb8e] active:to-[#e1e76f] 
+  }
+
+  .iconLink{
+    @apply w-8 md:w-10 h-8 md:h-10 mb-1 border-2 rounded-md p-[5px] transition-all duration-300 bg-gray-200 hover:bg-gray-400  active:bg-gray-100
+  }
+
+
+}
+

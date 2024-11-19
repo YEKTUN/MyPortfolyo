@@ -1,0 +1,12 @@
+.swiper-button-next,
+.swiper-button-prev {
+  width: 20px; /* Ok genişliği */
+  height: 20px; /* Ok yüksekliği */
+  color: #000; /* Ok rengi */
+}
+
+/* Okların üzerindeki SVG ikonları */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 16px; /* Ok ikon boyutu */
+}
