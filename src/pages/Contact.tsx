@@ -11,6 +11,7 @@ import { sendMessage, clearError, setResultData } from "../redux/SendMessageSlic
 import type { AppDispatch } from "../redux/store";
 import type { DataError, DataData } from "../redux/SendMessageSlice";
 import { useSnackbar } from "notistack";
+import { CircularProgress } from "@mui/material";
 
 function Contact() {
   const [name, setName] = useState<string>("");
@@ -67,6 +68,12 @@ function Contact() {
         sx={{ "& > :not(style) ": { m: 1 } }}
         className="flex flex-col w-[500px] border-2 bg-yellow-200 rounded-2xl"
       >
+       <Box className="flex justify-center items-center">
+       <CircularProgress
+        className="text-center"
+          sx={{ display: resultData===false ? "block" : "none" }}
+          color="inherit"/>
+       </Box>
         <Box sx={{ display: "flex", alignItems: "flex-end" }}>
           <AccountCircle sx={{ color: "action.active", mr: 1, my: 0.5 }} />
           <TextField
