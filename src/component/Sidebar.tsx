@@ -10,7 +10,7 @@ import Docker from "../assets/icons/docker.png";
 import MongoDB from "../assets/icons/MongoDB_Logo.svg";
 import NodeJS from "../assets/icons/Node.js_Logo.svg";
 import Linkedin from "../assets/icons/linkedin-color-svgrepo-com.svg";
-import Instagram from "../assets/icons/instagram_logo.png";
+import Instagram from "../assets/icons/Instagram_logo.png";
 import Github from "../assets/icons/github_logo.svg";
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 
