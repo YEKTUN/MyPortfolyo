@@ -62,8 +62,7 @@ function Contact() {
      
     }
   }, [data?.result,resultData ,dispatch]);
-  console.log("loading",loading);
-  console.log("resultData",resultData);
+
   
 
   return (
