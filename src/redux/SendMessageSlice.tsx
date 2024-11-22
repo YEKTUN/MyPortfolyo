@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { baseURL } from "../url";
 import axios from "axios";
 
+
 export interface DataError{
   errorMessage:{[key:string]:string[]},
   errorTime:string,
@@ -16,6 +17,7 @@ export interface DataData{
 export interface CounterState {
   error:DataError|null,
   data:DataData|null,
+  loading:boolean,
   resultData:boolean
 
   
@@ -35,7 +37,7 @@ export const sendMessage = createAsyncThunk(
         data ,
         { withCredentials: true }
       );
-    
+   
       return response.data;
     } catch (error: any) {
       if(error.response &&error.response.data){
@@ -50,7 +52,8 @@ export const sendMessage = createAsyncThunk(
 const initialState: CounterState = {
   error:null,
   data:null,
-  resultData:false,
+  loading:false,
+  resultData:false
   
 };
 
@@ -69,16 +72,20 @@ export const counterSlice = createSlice({
     builder
       .addCase(sendMessage.fulfilled, (state,action) => {
         state.data = action.payload;
-        state.resultData = true;
+        state.loading = false;
+        state.resultData=true
+       
         
         console.log(action.payload);
       })
       .addCase(sendMessage.pending, (state) => {
-        state.resultData = false;
-        console.log("pending");
+        state.loading = true;
+        state.resultData=false
+      console.log("pending");
       })
       .addCase(sendMessage.rejected, (state,action) => {
-        state.resultData = false;
+        state.loading = true;
+        state.resultData=false
       state.error=action.payload as DataError
           console.log("Hata Detayı:", action.payload||action.error.message);
         

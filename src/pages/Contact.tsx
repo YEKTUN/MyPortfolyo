@@ -26,6 +26,9 @@ function Contact() {
   const data: DataData | null = useSelector(
     (state: any) => state.sendMessage.data
   );
+  const loading: boolean = useSelector(
+    (state: any) => state.sendMessage.loading
+  );
   const resultData: boolean = useSelector(
     (state: any) => state.sendMessage.resultData
   );
@@ -42,20 +45,26 @@ function Contact() {
       setName("");
       setEmail("");
       setMessage("");
-
+     
+    
       if (resultData) {
         enqueueSnackbar("Form suscessfully sent", {
-          variant: "success", // success, error, warning, info
+          variant: "success", 
           anchorOrigin: {
             vertical: "top",
             horizontal: "center",
           },
           autoHideDuration: 1500,
-        });
+        })
+        
       }
       dispatch(setResultData(false));
+     
     }
-  }, [data?.result,resultData, dispatch]);
+  }, [data?.result,resultData ,dispatch]);
+  console.log("loading",loading);
+  console.log("resultData",resultData);
+  
 
   return (
     <Box className="flex  flex-col justify-center items-center w-full ">
@@ -71,7 +80,7 @@ function Contact() {
        <Box className="flex justify-center items-center">
        <CircularProgress
         className="text-center"
-          sx={{ display: resultData===false ? "block" : "none" }}
+          sx={{ display: loading? "block " : "none" }}
           color="inherit"/>
        </Box>
         <Box sx={{ display: "flex", alignItems: "flex-end" }}>
@@ -131,6 +140,7 @@ function Contact() {
         <Box className=" w-full flex items-center justify-center  pr-2 ">
           <Button
             onClick={() => {
+             
               dispatch(sendMessage({ name, email, message }));
             }}
             className="w-[200px]   "
