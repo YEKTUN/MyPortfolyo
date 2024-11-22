@@ -47,6 +47,7 @@ function Contact() {
         autoHideDuration: 1500,
         
       });
+      
     }
   }, [data?.result]);
 

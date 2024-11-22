@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-
+import { baseURL } from "../url";
 import axios from "axios";
 
 export interface DataError{
@@ -30,7 +30,7 @@ export const sendMessage = createAsyncThunk(
   async (data:dataProps,{rejectWithValue}) => {
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/createUserInfo",
+        `${baseURL}/api/createUserInfo`,
         data ,
         { withCredentials: true }
       );
