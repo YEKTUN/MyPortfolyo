@@ -7,16 +7,16 @@ import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import TextareaAutosize from "@mui/material/TextareaAutosize";
 import SendIcon from "@mui/icons-material/Send";
 import { useDispatch, useSelector } from "react-redux";
-import { sendMessage, clearError } from "../redux/SendMessageSlice";
+import { sendMessage, clearError, setResultData } from "../redux/SendMessageSlice";
 import type { AppDispatch } from "../redux/store";
 import type { DataError, DataData } from "../redux/SendMessageSlice";
 import { useSnackbar } from "notistack";
-
 
 function Contact() {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
+
   const dispatch: AppDispatch = useDispatch();
   const { enqueueSnackbar } = useSnackbar();
   const errorMessages: DataError | null = useSelector(
@@ -25,11 +25,15 @@ function Contact() {
   const data: DataData | null = useSelector(
     (state: any) => state.sendMessage.data
   );
+  const resultData: boolean = useSelector(
+    (state: any) => state.sendMessage.resultData
+  );
 
   const handleMessageCapitalize = (value: string) => {
     const capitalizedMessage = value.charAt(0).toUpperCase() + value.slice(1); // İlk harfi büyük yap
     setMessage(capitalizedMessage);
     dispatch(clearError());
+   
   };
 
   useEffect(() => {
@@ -38,22 +42,22 @@ function Contact() {
       setEmail("");
       setMessage("");
 
-      enqueueSnackbar("Form suscessfully sent", {
-        variant: "success", // success, error, warning, info
-        anchorOrigin: {
-          vertical: "top",
-          horizontal: "center",
-        },
-        autoHideDuration: 1500,
-        
-      });
-      
+      if (resultData) {
+        enqueueSnackbar("Form suscessfully sent", {
+          variant: "success", // success, error, warning, info
+          anchorOrigin: {
+            vertical: "top",
+            horizontal: "center",
+          },
+          autoHideDuration: 1500,
+        });
+      }
+      dispatch(setResultData(false));
     }
-  }, [data?.result]);
+  }, [data?.result,resultData, dispatch]);
 
   return (
     <Box className="flex  flex-col justify-center items-center w-full ">
-   
       <Box className="flex w-[500px] justify-start items-start">
         <h1 className="text-4xl font-semibold mb-2 ml-2 border-b-2 border-black text-[#010100]">
           For Contact
@@ -120,7 +124,6 @@ function Contact() {
         <Box className=" w-full flex items-center justify-center  pr-2 ">
           <Button
             onClick={() => {
-            
               dispatch(sendMessage({ name, email, message }));
             }}
             className="w-[200px]   "
@@ -130,7 +133,6 @@ function Contact() {
           >
             Send
           </Button>
-     
         </Box>
       </Box>
     </Box>

@@ -15,7 +15,8 @@ export interface DataData{
 }
 export interface CounterState {
   error:DataError|null,
-  data:DataData|null
+  data:DataData|null,
+  resultData:boolean
 
   
 }
@@ -34,6 +35,7 @@ export const sendMessage = createAsyncThunk(
         data ,
         { withCredentials: true }
       );
+    
       return response.data;
     } catch (error: any) {
       if(error.response &&error.response.data){
@@ -48,6 +50,7 @@ export const sendMessage = createAsyncThunk(
 const initialState: CounterState = {
   error:null,
   data:null,
+  resultData:false,
   
 };
 
@@ -57,19 +60,25 @@ export const counterSlice = createSlice({
   reducers: {
     clearError:(state)=>{
       state.error=null
+    },
+    setResultData:(state,action)=>{
+      state.resultData=action.payload
     }
   },
   extraReducers(builder) {
     builder
       .addCase(sendMessage.fulfilled, (state,action) => {
         state.data = action.payload;
+        state.resultData = true;
         
         console.log(action.payload);
       })
-      .addCase(sendMessage.pending, () => {
+      .addCase(sendMessage.pending, (state) => {
+        state.resultData = false;
         console.log("pending");
       })
       .addCase(sendMessage.rejected, (state,action) => {
+        state.resultData = false;
       state.error=action.payload as DataError
           console.log("Hata Detayı:", action.payload||action.error.message);
         
@@ -77,6 +86,6 @@ export const counterSlice = createSlice({
   },
 });
 
-export const {clearError} = counterSlice.actions;
+export const {clearError,setResultData} = counterSlice.actions;
 
 export default counterSlice.reducer;
