@@ -5,8 +5,8 @@ import JavaLogo from "../assets/icons/Java_logo.svg";
 import SpringLogo from "../assets/icons/Spring_Logo.svg";
 import HTMLLogo from "../assets/icons/HTML_Logo.svg";
 import CSSLogo from "../assets/icons/CSS_Logo.svg";
-import PostgreSQL from "../assets/icons/PostgreSQL_Logo.svg";
-import MySQL from "../assets/icons/MySQL_Logo.svg";
+import PostgreSQL from "../assets/icons/Postgresql_Logo.svg";
+import Docker from "../assets/icons/docker.png";
 import MongoDB from "../assets/icons/MongoDB_Logo.svg";
 import NodeJS from "../assets/icons/Node.js_Logo.svg";
 import Linkedin from "../assets/icons/linkedin-color-svgrepo-com.svg";
@@ -61,7 +61,7 @@ const Sidebar = () => {
         alt="PostgreSQL"
         className="w-8 md:w-10 h-8 md:h-10"
       />
-      <img src={MySQL} alt="MySQL" className="w-8 md:w-10 h-8 md:h-10" />
+      <img src={Docker} alt="MySQL" className="w-8 md:w-10 h-8 md:h-10" />
       <img
         src={MongoDB}
         alt="MongoDB"
