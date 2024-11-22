@@ -109,7 +109,7 @@ export const Bubbles = () => {
         id="tsparticles"
         particlesLoaded={particlesLoaded}
         options={options}
-        className="absolute top-0 left-0 w-full h-[2500px] md:h-full  z-[-1] bg-gradient-to-tr from-[#e8ed86]  to-[#668281]  " 
+        className="absolute top-0 left-0 w-full h-[2500px] md:h-[850px]  z-[-1] bg-gradient-to-tr from-[#e8ed86]  to-[#668281]  " 
       />
     );
   }

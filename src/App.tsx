@@ -7,7 +7,7 @@ import Sidebar from "./component/Sidebar";
 function App() {
   return (
     <SnackbarProvider maxSnack={3}>
-      <div className="flex flex-col md:flex-row-reverse justify-start items-center min-h-screen scroll-smooth  w-full z-20 p-4 md:p-10 ">
+      <div className="flex flex-col md:flex-row-reverse justify-start items-center min-h-screen    w-full z-20 p-4 md:p-10 ">
       <Bubbles />
       <Sidebar />
     

@@ -29,7 +29,7 @@ function Projects() {
           }}
           images={alishopping_images}
           projectName="AliShopping App"
-          url="https://github.com/YEKTUN/Ali-Shopping-Mobile-App"
+          url="https://github.com/YEKTUN/Yaz-staj-sepet-uygulamam"
           description={descriptionAlishopping}
         />
 
@@ -41,7 +41,7 @@ function Projects() {
           }}
           images={mySocialMedia_images}
           projectName="MySocialMedia App"
-          url="https://github.com/YEKTUN/Ali-Shopping-Mobile-App"
+          url="https://github.com/YEKTUN/React-FullStack-Projects"
           description={descriptionMySocialMedia}
         />
 
@@ -53,7 +53,7 @@ function Projects() {
           }}
           images={myChatApp_images}
           projectName="MyChatApp"
-          url="https://github.com/YEKTUN/Ali-Shopping-Mobile-App"
+          url="https://github.com/YEKTUN/MyChatApp"
           description={descriptionMyChatApp}
         />
       </div>
