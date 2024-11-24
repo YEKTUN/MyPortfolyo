@@ -91,7 +91,7 @@ const Sidebar = () => {
       <a
         rel="noopener noreferrer"
         target="_blank"
-        href="https://github.com/YEKTUN?tab=repositories"
+        href="https://github.com/YEKTUN"
         className="flex flex-col  items-center w-1/3 "
       >
         <img src={Github} alt="Github" className="iconLink" />
