@@ -17,7 +17,7 @@ const Project: React.FC<Props> = ({
   onClick,
 }) => {
   return (
-    <div className="flex flex-col  justify-start items-start md:items-center border-b-2  border-dashed border-black pb-4 md:pb-6 gap-4">
+    <div className="flex flex-col    justify-center items-start md:items-center border-b-2  border-dashed border-black pb-4 md:pb-6 gap-4">
       
       <div className="w-full md:w-[400px]mr-4  ">
         <div className="">
@@ -36,12 +36,12 @@ const Project: React.FC<Props> = ({
       </div>
 
      
-      <div className="flex flex-col items-start md:items-center justify-between  h-[250px]  w-full md:w-[500px] gap-4 md:gap-6">
-        <p className="text-sm md:text-base text-justify w-[350px] ">
+      <div className="flex flex-col items-start md:items-center justify-between  h-[300px]  w-full md:w-[500px] gap-4 md:gap-6 ">
+        <p className="text-sm md:text-base text-justify w-[300px] ">
           {description ||
             "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos dignissimos perferendis modi ratione asperiores nisi labore placeat soluta iusto optio?"}
         </p>
-        <div className="flex items-center gap-2 ">
+        <div className="flex items-center gap-2 border-2 ">
           <p className="font-semibold text-sm md:text-base">Source Code --</p>
           <a
             href={url || "https://github.com/YEKTUN/Yaz-staj-sepet-uygulamam"}
