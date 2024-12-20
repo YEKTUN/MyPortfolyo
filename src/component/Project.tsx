@@ -41,7 +41,7 @@ const Project: React.FC<Props> = ({
           {description ||
             "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos dignissimos perferendis modi ratione asperiores nisi labore placeat soluta iusto optio?"}
         </p>
-        <div className="flex items-center gap-2 border-2 ">
+        <div className="flex items-center gap-2  ">
           <p className="font-semibold text-sm md:text-base">Source Code --</p>
           <a
             href={url || "https://github.com/YEKTUN/Yaz-staj-sepet-uygulamam"}
